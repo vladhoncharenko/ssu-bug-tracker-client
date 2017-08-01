@@ -2,12 +2,16 @@
  * Created by Vlad on 31.07.2017.
  */
 
-// To add bugs test data to db run: node db-insert-test-data.js bugs
+/*
+ * To add bugs test data to db run: node db-insert-test-data.js <argument>
+ * Possible arguments:
+ *   bugs - bugs test data
+ * */
 
 let mongoose = require('mongoose'),
     bugSchema = require('../../app/models/bug-schema'),
     configDB = require('../../config/mongo-db-config'),
-    testBugsData = require('./bugs-test-data').bugs,
+    testBugsData = require('./test-data').bugs,
     testData;
 
 mongoose.connect(configDB.url, {
