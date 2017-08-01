@@ -3,38 +3,34 @@
  */
 
 let mongoose = require('mongoose');
-// ToDo: update bug schema
+
 let BugSchema = mongoose.Schema({
 
     bugId: {
         type: String
     },
 
-    file_name: {
+    author: {
+        type: Object
+    },
+
+    date: {
         type: String
     },
 
-    file_id: {
-        type: String
-    },
-
-    caption: {
-        type: String
+    location: {
+        type: Object
     },
 
     description: {
         type: String
     },
 
-    coordinates: {
-        type: Array
+    picId: {
+        type: String
     },
 
-    user: {
-        type: Object
-    },
-
-    date: {
+    status: {
         type: String
     }
 
