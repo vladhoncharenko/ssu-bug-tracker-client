@@ -7,4 +7,14 @@ const apiRoutes = require('./apiRoutes');
 module.exports = function (app, viewPath, Bug) {
 
     apiRoutes(app, Bug);
+
+    app.get('/', function (req, res) {
+        res.sendfile(viewPath + 'index.html');
+    });
+
+    app.get('/bug/:id*', function (req, res) {
+        res.render(viewPath + 'bug.ejs', {
+            bugId: req.params.id
+        });
+    });
 };
