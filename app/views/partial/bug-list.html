@@ -1,0 +1,12 @@
+<div>
+    <div ng-repeat="bugData in bugsData">
+        <p>{{bugData.bugId}}</p>
+        <p>{{bugData.author.firstName}}</p>
+        <p>{{bugData.author.lastName}}</p>
+        <p>{{bugData.date}}</p>
+        <p>{{bugData.location.building}}</p>
+        <p>{{bugData.location.room}}</p>
+        <img src='http://localhost:5000/pics/{{bugData.picId}}'/>
+        <p>{{bugData.status}}</p>
+    </div>
+</div>
