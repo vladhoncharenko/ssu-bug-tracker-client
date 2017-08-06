@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', (process.env.PORT || 5000));
 app.use('/', express.static(path.join(__dirname, '../app/')));
-app.use('/pics', express.static(path.join(__dirname, '/pics')));
+app.use('/pics', express.static(path.join(__dirname, '../pics')));
 app.set('view engine', 'ejs');
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:7777');

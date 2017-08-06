@@ -2,7 +2,7 @@
  * Created by Vlad on 31.07.2017.
  */
 
-const apiRoutes = require('./apiRoutes');
+const apiRoutes = require('./api-routes');
 
 module.exports = function (app, viewPath, Bug) {
 
