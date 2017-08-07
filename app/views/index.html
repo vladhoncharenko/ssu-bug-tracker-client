@@ -5,10 +5,12 @@
     <title>SSU Bug Tracker</title>
     <script src="../scripts/libs/angular.js"></script>
     <script src="../scripts/libs/jquery-3.2.1.min.js"></script>
+    <script src="../scripts/libs/ui-bootstrap-tpls-0.11.0.min.js"></script>
     <script src="../scripts/libs/bootstrap.min.js"></script>
 
     <script src="../scripts/app.js" type="text/javascript"></script>
     <script src="../scripts/services/data-context.js" type="text/javascript"></script>
+    <script src="../scripts/helpers/enums.js" type="text/javascript"></script>
     <script src="../scripts/controllers/main-page-controller.js" type="text/javascript"></script>
 
     <link rel="stylesheet" type="text/css" href="../content/css/index-style.css">
@@ -42,6 +44,13 @@
                     <div class="tab-pane fade" id="resolved">
                         <div ng-include src="'../views/partial/bug-list.html'"></div>
                     </div>
+                </div>
+                <div class="text-center">
+                    <pagination total-items="bugsData.length" ng-model="currentPage" max-size="maxButtonsAmount"
+                                class="pagination-sm "
+                                boundary-links="true" rotate="false" num-pages="numPages"
+                                items-per-page="maxPostsAmountPerPage" ng-change="pageChanged()">
+                    </pagination>
                 </div>
             </div>
         </div>

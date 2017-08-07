@@ -1,5 +1,5 @@
 <div>
-    <div ng-repeat="bugData in bugsData">
+    <div ng-repeat="bugData in bugsData.slice(((currentPage - 1) * maxPostsAmountPerPage), ((currentPage) * maxPostsAmountPerPage))">
         <p>{{bugData.bugId}}</p>
         <p>{{bugData.author.firstName}}</p>
         <p>{{bugData.author.lastName}}</p>
