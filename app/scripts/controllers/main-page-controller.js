@@ -13,7 +13,7 @@
         $scope.currentPage = enums.DEFAULT_PAGE_NUMBER;
         $scope.maxPostsAmountPerPage = enums.MAX_POSTS_AMOUNT_PER_PAGE;
 
-        $scope.init = function () {
+        $scope.init = function (userPermissions) {
             dataContext.getAllBugsData().then(allBugsData => {
                 allBugsData.forEach(item => {
                     item.date = new Date(item.date * 1000).toISOString().slice(0, 10);
@@ -23,6 +23,7 @@
                 $scope.inProgressBugs = allBugsData.filter(item => item.status == 'in_progress');
                 $scope.lastBugs = allBugsData.filter(item => item.status == 'new');
                 $scope.bugsData = $scope.lastBugs;
+                $scope.isAdmin = userPermissions == enums.ADMIN;
             });
         };
 
