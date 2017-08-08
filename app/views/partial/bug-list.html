@@ -7,6 +7,24 @@
         <p>{{bugData.location.building}}</p>
         <p>{{bugData.location.room}}</p>
         <img src='http://localhost:5000/pics/{{bugData.picId}}'/>
-        <p>{{bugData.status}}</p>
+        <div ng-show="isAdmin">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button">{{bugData.status}}
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0);"
+                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.NEW )">{{BUGS_STATUSES.NEW}}</a></li>
+                    <li><a href="javascript:void(0);"
+                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.IN_PROGRESS )">{{BUGS_STATUSES.IN_PROGRESS}}</a>
+                    </li>
+                    <li><a href="javascript:void(0);"
+                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.RESOLVED )">{{BUGS_STATUSES.RESOLVED}}</a>
+                    </li>
+                    <li><a href="javascript:void(0);"
+                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.DELETED )">{{BUGS_STATUSES.DELETED}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

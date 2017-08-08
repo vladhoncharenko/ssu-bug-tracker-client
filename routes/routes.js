@@ -14,6 +14,11 @@ module.exports = function (app, viewPath, Bug, passport) {
         });
     });
 
+    app.get('/#!#_=_', function (req, res) {
+        res.redirect('/');
+    });
+
+
     app.get('/bug/:id*', function (req, res) {
         res.render(viewPath + 'bug.ejs', {
             bugId: req.params.id

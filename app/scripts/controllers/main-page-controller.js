@@ -7,6 +7,7 @@
     angular.module('ssuBugTracker').controller('MainPageController', ['$scope', 'dataContext', 'enums', function ($scope, dataContext, enums) {
 
         $scope.BUGS_CATEGORIES = enums.BUGS_CATEGORIES;
+        $scope.BUGS_STATUSES = enums.BUGS_STATUSES;
 
         // Pagination properties
         $scope.maxButtonsAmount = enums.MAX_BUTTONS_AMOUNT;
@@ -18,10 +19,9 @@
                 allBugsData.forEach(item => {
                     item.date = new Date(item.date * 1000).toISOString().slice(0, 10);
                 });
-                $scope.lastBugs = allBugsData;
-                $scope.resolvedBugs = allBugsData.filter(item => item.status == 'resolved');
-                $scope.inProgressBugs = allBugsData.filter(item => item.status == 'in_progress');
-                $scope.lastBugs = allBugsData.filter(item => item.status == 'new');
+                $scope.resolvedBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.RESOLVED);
+                $scope.inProgressBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.IN_PROGRESS);
+                $scope.lastBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.NEW);
                 $scope.bugsData = $scope.lastBugs;
                 $scope.isAdmin = userPermissions == enums.ADMIN;
             });
@@ -29,7 +29,7 @@
 
         $scope.getBugsData = function (bugTab) {
             switch (bugTab) {
-                case enums.BUGS_CATEGORIES.LAST:
+                case enums.BUGS_CATEGORIES.NEW:
                     $scope.bugsData = $scope.lastBugs;
                     break;
                 case enums.BUGS_CATEGORIES.IN_PROGRESS:
@@ -48,6 +48,26 @@
 
         $scope.pageChanged = function () {
             $('html, body').animate({scrollTop: 0}, 'fast');
+        };
+
+        $scope.setNewStatus = function (bugData, status) {
+            let index = $scope.bugsData.indexOf(bugData);
+            if (index > -1) {
+                $scope.bugsData.splice(index, 1);
+            }
+            bugData.status = status;
+            switch (status) {
+                case enums.BUGS_CATEGORIES.NEW:
+                    $scope.lastBugs.push(bugData);
+                    break;
+                case enums.BUGS_CATEGORIES.IN_PROGRESS:
+                    $scope.inProgressBugs.push(bugData);
+                    break;
+                case enums.BUGS_CATEGORIES.RESOLVED:
+                    $scope.resolvedBugs.push(bugData);
+                    break;
+            }
+            dataContext.updateStatus(bugData.bugId, status);
         };
 
     }]);

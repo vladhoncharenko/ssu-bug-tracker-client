@@ -15,7 +15,6 @@
 
     <link rel="stylesheet" type="text/css" href="../content/css/index-style.css">
     <link rel="stylesheet" type="text/css" href="../content/css/bootstrap.min.css">
-
 </head>
 <body ng-init="init('<%= userPermissions %>')" ng-controller="MainPageController">
 
@@ -26,7 +25,7 @@
             <div class="panel-heading">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href data-target="#last" data-toggle="tab"
-                                          ng-click="getBugsData(BUGS_CATEGORIES.LAST)">Останні</a></li>
+                                          ng-click="getBugsData(BUGS_CATEGORIES.NEW)">Останні</a></li>
                     <li><a href data-target="#inProgress" data-toggle="tab"
                            ng-click="getBugsData(BUGS_CATEGORIES.IN_PROGRESS)">В процессі</a></li>
                     <li><a href data-target="#resolved" data-toggle="tab"

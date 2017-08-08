@@ -32,6 +32,18 @@
             });
         };
 
+        factory.updateStatus = function (bugId, newStatus) {
+            return $http({
+                method: 'POST',
+                url: '/updateStatus',
+                data: {id: bugId, status: newStatus}
+            }).then(function successCallback(response) {
+                return response.data;
+            }, function errorCallback(response) {
+                alert('Error while updating bug data! Please, reload page.')
+            });
+        };
+
         return factory;
 
     }]);
