@@ -10,7 +10,7 @@ let bugs = [
         location: {building: 'ET', room: 'ET-228'},
         description: 'Солнце составляет 99,8 процентов массы Солнечной системы',
         picId: '0001.jpg',
-        status: 'new'
+        status: 'not_reviewed'
     },
     {
         bugId: '0002',
@@ -127,7 +127,7 @@ let bugs = [
         location: {building: 'M', room: 'М-306'},
         description: 'Если бы вы упали в черную дыру, вас бы растянуло как лапшу',
         picId: '0001.jpg',
-        status: 'resolved'
+        status: 'not_reviewed'
     },
     {
         bugId: '0015',
