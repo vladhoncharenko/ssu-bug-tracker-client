@@ -26,4 +26,27 @@ module.exports = function (app, Bug) {
             console.log('Error while pic downloading: ' + error);
         });
     });
+
+    app.post('/updateStatus', (req, res) => {
+        let isAdmin = req.user == undefined ? false : req.user._doc.facebook.permissions == 'admin';
+        if (isAdmin) {
+            Bug.findOne({'bugId': req.body.id}, function (err, bug) {
+                if (err) console.log(err);
+                bug.status = req.body.status;
+                bug.save();
+                res.sendStatus(200);
+            });
+        }
+    });
+
+    app.post('/deleteBug', (req, res) => {
+        let isAdmin = req.user == undefined ? false : req.user._doc.facebook.permissions == 'admin';
+        if (isAdmin) {
+            Bug.findOneAndRemove({'bugId': req.body.id}, function (err, bug) {
+                if (err) console.log(err);
+                res.sendStatus(200);
+            });
+        }
+    });
+
 };
