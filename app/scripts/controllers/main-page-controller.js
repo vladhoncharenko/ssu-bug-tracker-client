@@ -70,5 +70,27 @@
             dataContext.updateStatus(bugData.bugId, status);
         };
 
+        $scope.deleteBug = function (bugData) {
+            let index = $scope.bugsData.indexOf(bugData);
+            if (index > -1) {
+                $scope.bugsData.splice(index, 1);
+            }
+            dataContext.deleteBug(bugData.bugId);
+        };
+
+        $scope.getCategoryName = function (status) {
+            switch (status) {
+                case enums.BUGS_CATEGORIES.NEW:
+                    return enums.BUGS_STATUSES.NEW;
+                    break;
+                case enums.BUGS_CATEGORIES.IN_PROGRESS:
+                    return enums.BUGS_STATUSES.IN_PROGRESS;
+                    break;
+                case enums.BUGS_CATEGORIES.RESOLVED:
+                    return enums.BUGS_STATUSES.RESOLVED;
+                    break;
+            }
+        };
+
     }]);
 }(angular));

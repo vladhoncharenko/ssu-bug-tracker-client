@@ -44,6 +44,18 @@
             });
         };
 
+        factory.deleteBug = function (bugId) {
+            return $http({
+                method: 'POST',
+                url: '/deleteBug',
+                data: {id: bugId}
+            }).then(function successCallback(response) {
+                return response.data;
+            }, function errorCallback(response) {
+                alert('Error while deleting bug! Please, reload page.')
+            });
+        };
+
         return factory;
 
     }]);
