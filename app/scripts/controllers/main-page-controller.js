@@ -8,6 +8,7 @@
 
         $scope.BUGS_CATEGORIES = enums.BUGS_CATEGORIES;
         $scope.BUGS_STATUSES = enums.BUGS_STATUSES;
+        $scope.TAB_NAMES = enums.TAB_NAMES;
 
         // Pagination properties
         $scope.maxButtonsAmount = enums.MAX_BUTTONS_AMOUNT;
@@ -22,8 +23,13 @@
                 $scope.resolvedBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.RESOLVED);
                 $scope.inProgressBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.IN_PROGRESS);
                 $scope.lastBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.NEW);
-                $scope.bugsData = $scope.lastBugs;
                 $scope.isAdmin = userPermissions == enums.ADMIN;
+                if ($scope.isAdmin) {
+                    $scope.notReviewedBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.NOT_REVIEWED);
+                    $scope.bugsData = $scope.notReviewedBugs;
+                } else {
+                    $scope.bugsData = $scope.lastBugs;
+                }
             });
         };
 
@@ -37,6 +43,9 @@
                     break;
                 case enums.BUGS_CATEGORIES.RESOLVED:
                     $scope.bugsData = $scope.resolvedBugs;
+                    break;
+                case enums.BUGS_CATEGORIES.NOT_REVIEWED:
+                    $scope.bugsData = $scope.notReviewedBugs;
                     break;
             }
             $scope.setPage(enums.DEFAULT_PAGE_NUMBER);
@@ -88,6 +97,9 @@
                     break;
                 case enums.BUGS_CATEGORIES.RESOLVED:
                     return enums.BUGS_STATUSES.RESOLVED;
+                    break;
+                case enums.BUGS_CATEGORIES.NOT_REVIEWED:
+                    return enums.BUGS_STATUSES.NOT_REVIEWED;
                     break;
             }
         };

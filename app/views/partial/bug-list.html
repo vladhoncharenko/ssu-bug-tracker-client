@@ -1,30 +1,29 @@
-<div>
-    <div ng-repeat="bugData in bugsData.slice(((currentPage - 1) * maxPostsAmountPerPage), ((currentPage) * maxPostsAmountPerPage))">
-        <p>{{bugData.bugId}}</p>
-        <p>{{bugData.author.firstName}}</p>
-        <p>{{bugData.author.lastName}}</p>
-        <p>{{bugData.date}}</p>
-        <p>{{bugData.location.building}}</p>
-        <p>{{bugData.location.room}}</p>
-        <img src='http://localhost:5000/pics/{{bugData.picId}}'/>
-        <div ng-show="isAdmin">
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button">{{getCategoryName(bugData.status)}}
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0);"
-                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.NEW )">{{BUGS_STATUSES.NEW}}</a></li>
-                    <li><a href="javascript:void(0);"
-                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.IN_PROGRESS )">{{BUGS_STATUSES.IN_PROGRESS}}</a>
-                    </li>
-                    <li><a href="javascript:void(0);"
-                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.RESOLVED )">{{BUGS_STATUSES.RESOLVED}}</a>
-                    </li>
-                    <li><a href="javascript:void(0);"
-                           ng-click="deleteBug(bugData)">{{BUGS_STATUSES.DELETED}}</a>
-                    </li>
-                </ul>
-            </div>
+<div ng-repeat="bugData in bugsData.slice(((currentPage - 1) * maxPostsAmountPerPage), ((currentPage) * maxPostsAmountPerPage))">
+    <p>{{bugData.bugId}}</p>
+    <p>{{bugData.author.firstName}}</p>
+    <p>{{bugData.author.lastName}}</p>
+    <p>{{bugData.date}}</p>
+    <p>{{bugData.location.building}}</p>
+    <p>{{bugData.location.room}}</p>
+    <img src='http://localhost:5000/pics/{{bugData.picId}}'/>
+    <div ng-show="isAdmin">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button">{{getCategoryName(bugData.status)}}
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="javascript:void(0);"
+                       ng-click="setNewStatus(bugData,BUGS_CATEGORIES.NEW )">{{BUGS_STATUSES.NEW}}</a></li>
+                <li><a href="javascript:void(0);"
+                       ng-click="setNewStatus(bugData,BUGS_CATEGORIES.IN_PROGRESS )">{{BUGS_STATUSES.IN_PROGRESS}}</a>
+                </li>
+                <li><a href="javascript:void(0);"
+                       ng-click="setNewStatus(bugData,BUGS_CATEGORIES.RESOLVED )">{{BUGS_STATUSES.RESOLVED}}</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0);"
+                       ng-click="deleteBug(bugData)">{{BUGS_STATUSES.DELETED}}</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

@@ -24,25 +24,24 @@
         <div class="panel with-nav-tabs panel-info">
             <div class="panel-heading">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href data-target="#last" data-toggle="tab"
-                                          ng-click="getBugsData(BUGS_CATEGORIES.NEW)">Останні</a></li>
-                    <li><a href data-target="#inProgress" data-toggle="tab"
-                           ng-click="getBugsData(BUGS_CATEGORIES.IN_PROGRESS)">В процессі</a></li>
-                    <li><a href data-target="#resolved" data-toggle="tab"
-                           ng-click="getBugsData(BUGS_CATEGORIES.RESOLVED)">Виконані</a></li>
+                    <li ng-show="isAdmin" ng-class="isAdmin ? 'active' :''"><a data-toggle="tab"
+                                                                               ng-click="getBugsData(BUGS_CATEGORIES.NOT_REVIEWED)">{{TAB_NAMES.NOT_REVIEWED}}</a>
+                    </li>
+                    <li ng-class="isAdmin ? '' :'active'"><a data-toggle="tab"
+                                                             ng-click="getBugsData(BUGS_CATEGORIES.NEW)">{{TAB_NAMES.NEW}}</a>
+                    </li>
+                    <li><a data-toggle="tab"
+                           ng-click="getBugsData(BUGS_CATEGORIES.IN_PROGRESS)">{{TAB_NAMES.IN_PROGRESS}}</a></li>
+                    <li><a data-toggle="tab"
+                           ng-click="getBugsData(BUGS_CATEGORIES.RESOLVED)">{{TAB_NAMES.RESOLVED}}</a></li>
                 </ul>
             </div>
             <div class="panel-body">
                 <div class="tab-content">
-                    <div class="tab-pane fade in active" id="last">
+                    <div class="tab-pane fade in active">
                         <div ng-include src="'../views/partial/bug-list.html'"></div>
                     </div>
-                    <div class="tab-pane fade" id="inProgress">
-                        <div ng-include src="'../views/partial/bug-list.html'"></div>
-                    </div>
-                    <div class="tab-pane fade" id="resolved">
-                        <div ng-include src="'../views/partial/bug-list.html'"></div>
-                    </div>
+
                 </div>
                 <div class="text-center">
                     <pagination total-items="bugsData.length" ng-model="currentPage" max-size="maxButtonsAmount"
