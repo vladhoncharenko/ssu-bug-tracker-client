@@ -25,7 +25,7 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/">SSU Bug Tracker</a>
         </div>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" >
             <li ng-show="isAdmin" ng-class="isAdmin ? 'active' :''"><a data-toggle="tab"
                                                                        ng-click="getBugsData(BUGS_CATEGORIES.NOT_REVIEWED)">{{TAB_NAMES.NOT_REVIEWED}}</a>
             </li>
@@ -39,15 +39,15 @@
 
         </ul>
         <div class="navbar-right">
-            <a href="https://t.me/SSUBugTrackerBot" target="_blank" class="btn btn-info navbar-btn"><span
+            <a href="https://t.me/SSUBugTrackerBot" target="_blank" class="btn btn-info navbar-btn bot-nav-button"><span
                         class="glyphicon glyphicon-send"></span> Додати баг</a>
-            <a href="" target="_blank" class="btn btn-success navbar-btn"><span></span>{{donePercents}}% багів вирішено!</a>
+            <a href="" target="_blank" class="btn btn-success navbar-btn stats-nav-button"><span></span>{{donePercents}}% багів вирішено!</a>
         </div>
     </div>
 </nav>
 <div class="container">
     <br>
-    <div class="col-md-12">
+    <div class="col-md-12 bugs-container">
         <div class="panel with-nav-tabs panel-info">
 
             <div class="panel-body">
