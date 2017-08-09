@@ -5,7 +5,9 @@
     <p>{{bugData.date}}</p>
     <p>{{bugData.location.building}}</p>
     <p>{{bugData.location.room}}</p>
-    <img src='http://localhost:5000/pics/{{bugData.picId}}'/>
+    <img class="img-responsive" src="http://localhost:5000/pics/{{bugData.picId}}" width="500" height="300">
+
+
     <div ng-show="isAdmin">
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button">{{getCategoryName(bugData.status)}}
