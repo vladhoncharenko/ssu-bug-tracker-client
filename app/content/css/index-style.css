@@ -55,3 +55,13 @@
     color: #fff;
     background-color: #31708f;
 }
+
+.bugs-container{
+    margin-top: 55px;
+}
+.stats-nav-button{
+    margin-right: 25px;
+}
+.bot-nav-button{
+    margin-right: 15px;
+}
