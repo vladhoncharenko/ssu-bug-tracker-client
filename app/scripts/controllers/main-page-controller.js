@@ -20,6 +20,7 @@
                 allBugsData.forEach(item => {
                     item.date = new Date(item.date * 1000).toISOString().slice(0, 10);
                 });
+                $scope.allBugsLength = allBugsData.length;
                 $scope.resolvedBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.RESOLVED);
                 $scope.inProgressBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.IN_PROGRESS);
                 $scope.lastBugs = allBugsData.filter(item => item.status == enums.BUGS_CATEGORIES.NEW);
@@ -30,6 +31,7 @@
                 } else {
                     $scope.bugsData = $scope.lastBugs;
                 }
+                $scope.setDonePercents();
             });
         };
 
@@ -76,6 +78,7 @@
                     $scope.resolvedBugs.push(bugData);
                     break;
             }
+            $scope.setDonePercents();
             dataContext.updateStatus(bugData.bugId, status);
         };
 
@@ -102,6 +105,10 @@
                     return enums.BUGS_STATUSES.NOT_REVIEWED;
                     break;
             }
+        };
+
+        $scope.setDonePercents = function () {
+            $scope.donePercents = Math.round($scope.resolvedBugs.length / $scope.allBugsLength * 100);
         };
 
     }]);
