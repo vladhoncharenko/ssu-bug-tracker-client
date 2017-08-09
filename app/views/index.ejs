@@ -20,25 +20,18 @@
 
 </head>
 <body ng-init="init('<%= userPermissions %>')" ng-controller="MainPageController">
-
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-
                 <div class="navbar-header" style="margin-right: 50px">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">SSU Bug Tracker</a>
+                    <a class="navbar-brand logo-name" href="/">SSU Bug Tracker</a>
                 </div>
-
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-
-
+                <div class="collapse navbar-collapse" id="collapse" >
                     <ul class="nav navbar-nav text-center" >
                         <li ng-show="isAdmin" ng-class="isAdmin ? 'active' :''"><a data-toggle="tab"
                                                                                    ng-click="getBugsData(BUGS_CATEGORIES.NOT_REVIEWED)">{{TAB_NAMES.NOT_REVIEWED}}</a>
@@ -52,34 +45,19 @@
                                ng-click="getBugsData(BUGS_CATEGORIES.RESOLVED)">{{TAB_NAMES.RESOLVED}}</a></li>
 
                     </ul>
+                        <ul class="nav navbar-nav navbar-right text-center right-nav-buttons">
 
-
-
-
-                        <ul class="nav navbar-nav navbar-right text-center">
-
-                            <a href="https://t.me/SSUBugTrackerBot" target="_blank" class="btn btn-info navbar-btn ">
+                            <a href="https://t.me/SSUBugTrackerBot" target="_blank" class="btn btn-info navbar-btn bot-button">
                                 <span class="glyphicon glyphicon-send"></span> Додати баг
                             </a>
 
                             <a href="" target="_blank" class="btn btn-success navbar-btn">
                                 <span></span>{{donePercents}}% багів вирішено!
                             </a>
-
                         </ul>
-
-
             </div>
-
-
-
-
-
     </div>
 </nav>
-
-
-
 <div class="container">
     <br>
     <div class="col-md-12 bugs-container">
