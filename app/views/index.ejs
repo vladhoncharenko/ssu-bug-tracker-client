@@ -6,37 +6,50 @@
     <script src="../scripts/libs/angular.js"></script>
     <script src="../scripts/libs/jquery-3.2.1.min.js"></script>
     <script src="../scripts/libs/ui-bootstrap-tpls-0.11.0.min.js"></script>
-    <script src="../scripts/libs/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../content/css/index-style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <script src="../scripts/app.js" type="text/javascript"></script>
     <script src="../scripts/services/data-context.js" type="text/javascript"></script>
     <script src="../scripts/helpers/enums.js" type="text/javascript"></script>
     <script src="../scripts/controllers/main-page-controller.js" type="text/javascript"></script>
-    <script src="../scripts/directives/progress-directive.js" type="text/javascript"></script>
 
-    <link rel="stylesheet" type="text/css" href="../content/css/index-style.css">
-    <link rel="stylesheet" type="text/css" href="../content/css/bootstrap.min.css">
 </head>
 <body ng-init="init('<%= userPermissions %>')" ng-controller="MainPageController">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">SSU Bug Tracker</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li ng-show="isAdmin" ng-class="isAdmin ? 'active' :''"><a data-toggle="tab"
+                                                                       ng-click="getBugsData(BUGS_CATEGORIES.NOT_REVIEWED)">{{TAB_NAMES.NOT_REVIEWED}}</a>
+            </li>
+            <li ng-class="isAdmin ? '' :'active'"><a data-toggle="tab"
+                                                     ng-click="getBugsData(BUGS_CATEGORIES.NEW)">{{TAB_NAMES.NEW}}</a>
+            </li>
+            <li><a data-toggle="tab"
+                   ng-click="getBugsData(BUGS_CATEGORIES.IN_PROGRESS)">{{TAB_NAMES.IN_PROGRESS}}</a></li>
+            <li><a data-toggle="tab"
+                   ng-click="getBugsData(BUGS_CATEGORIES.RESOLVED)">{{TAB_NAMES.RESOLVED}}</a></li>
 
+        </ul>
+        <div class="navbar-right">
+            <a href="https://t.me/SSUBugTrackerBot" target="_blank" class="btn btn-info navbar-btn"><span
+                        class="glyphicon glyphicon-send"></span> Додати баг</a>
+            <a href="" target="_blank" class="btn btn-success navbar-btn"><span></span>{{donePercents}}% багів вирішено!</a>
+        </div>
+    </div>
+</nav>
 <div class="container">
     <br>
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="panel with-nav-tabs panel-info">
-            <div class="panel-heading">
-                <ul class="nav nav-tabs">
-                    <li ng-show="isAdmin" ng-class="isAdmin ? 'active' :''"><a data-toggle="tab"
-                                                                               ng-click="getBugsData(BUGS_CATEGORIES.NOT_REVIEWED)">{{TAB_NAMES.NOT_REVIEWED}}</a>
-                    </li>
-                    <li ng-class="isAdmin ? '' :'active'"><a data-toggle="tab"
-                                                             ng-click="getBugsData(BUGS_CATEGORIES.NEW)">{{TAB_NAMES.NEW}}</a>
-                    </li>
-                    <li><a data-toggle="tab"
-                           ng-click="getBugsData(BUGS_CATEGORIES.IN_PROGRESS)">{{TAB_NAMES.IN_PROGRESS}}</a></li>
-                    <li><a data-toggle="tab"
-                           ng-click="getBugsData(BUGS_CATEGORIES.RESOLVED)">{{TAB_NAMES.RESOLVED}}</a></li>
-                </ul>
-            </div>
+
             <div class="panel-body">
                 <div class="tab-content">
                     <div class="tab-pane fade in active">
@@ -54,8 +67,13 @@
             </div>
         </div>
     </div>
-    <progress-percents class="col-md-2" style="background: darkseagreen">
-    </progress-percents>
 </div>
+<footer class="footer">
+    <div class="container text-center">
+        <p class="text-muted">Issues/Pull requests: <a href="https://github.com/vladhoncharenko/ssu-bug-tracker-client"
+                                                       target="_blank" class="text-muted">Client</a>
+            <a href="https://github.com/epismenniy/ssu-bt-telegram-bot" target="_blank" class="text-muted">Bot</a></p>
+    </div>
+</footer>
 </body>
 </html>
