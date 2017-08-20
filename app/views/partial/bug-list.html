@@ -1,13 +1,12 @@
 <div ng-repeat="bugData in bugsData.slice(((currentPage - 1) * maxPostsAmountPerPage), ((currentPage) * maxPostsAmountPerPage))">
     <p>{{bugData.bugId}}</p>
-    <p>{{bugData.author.firstName}}</p>
-    <p>{{bugData.author.lastName}}</p>
+    <p>{{bugData.author._firstName}}</p>
+    <p>{{bugData.author._lastName}}</p>
     <p>{{bugData.date}}</p>
     <p>{{bugData.location.building}}</p>
     <p>{{bugData.location.room}}</p>
-    <img class="img-responsive" src="http://localhost:5000/pics/{{bugData.picId}}" width="500" height="300">
-
-
+    <p>{{bugData.description}}</p>
+    <img class=" bug-item-pic" src="http://localhost:5000/pics/{{bugData.file_name}}">
     <div ng-show="isAdmin">
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button">{{getCategoryName(bugData.status)}}

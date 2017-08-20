@@ -26,7 +26,11 @@ let BugSchema = mongoose.Schema({
         type: String
     },
 
-    picId: {
+    file_name: {
+        type: String
+    },
+
+    file_id: {
         type: String
     },
 
