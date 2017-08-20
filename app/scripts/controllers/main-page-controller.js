@@ -111,5 +111,14 @@
             $scope.donePercents = Math.round($scope.resolvedBugs.length / $scope.allBugsLength * 100);
         };
 
+        $scope.vote = function (bug, increment) {
+            // ToDo: put voted flag in session.
+            if (bug.voted != true) {
+                bug.rating += increment;
+                dataContext.vote(bug.bugId, increment);
+            }
+            bug.voted = true;
+        };
+
     }]);
 }(angular));

@@ -66,3 +66,8 @@ body{
 .bug-description{
     padding-left: 10px;
 }
+
+.bug-rating{
+    padding-right: 100px;
+    margin-top: -25px !important;
+}

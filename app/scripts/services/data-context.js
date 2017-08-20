@@ -56,6 +56,18 @@
             });
         };
 
+        factory.vote = function (bugId, increment) {
+            return $http({
+                method: 'POST',
+                url: '/vote',
+                data: {id: bugId, increment:increment}
+            }).then(function successCallback(response) {
+                return response.data;
+            }, function errorCallback(response) {
+                alert('Error while voting! Please, reload page.')
+            });
+        };
+
         return factory;
 
     }]);

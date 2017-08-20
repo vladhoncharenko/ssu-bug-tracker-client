@@ -36,6 +36,10 @@ let BugSchema = mongoose.Schema({
 
     status: {
         type: String
+    },
+
+    rating:{
+        type: Number
     }
 
 });

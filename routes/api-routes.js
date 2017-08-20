@@ -49,4 +49,14 @@ module.exports = function (app, Bug) {
         }
     });
 
+    app.post('/vote', (req, res) => {
+        let increment = req.body.increment == 1 ? 1 : req.body.increment == -1 ? -1 : 0;
+        Bug.findOne({'bugId': req.body.id}, function (err, bug) {
+            if (err) console.log(err);
+            bug.rating += increment;
+            bug.save();
+            res.sendStatus(200);
+        });
+    });
+
 };
