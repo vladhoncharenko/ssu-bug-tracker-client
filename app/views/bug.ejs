@@ -3,22 +3,77 @@
 <head>
     <meta charset="utf-8" name="viewport" content="initial-scale=1.0, user-scalable=no">
     <title>Bug <%= bugId %></title>
+
     <script src="../scripts/libs/angular.js"></script>
+
+    <script src="../scripts/libs/jquery-3.2.1.min.js"></script>
+    <script src="../scripts/libs/ui-bootstrap-tpls-0.11.0.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="../content/css/bug-style.css">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
     <script src="../scripts/app.js" type="text/javascript"></script>
     <script src="../scripts/services/data-context.js" type="text/javascript"></script>
+
+    <script src="../scripts/controllers/main-page-controller.js" type="text/javascript"></script>
+
     <script src="../scripts/controllers/single-bug-controller.js" type="text/javascript"></script>
     <script src="../scripts/libs/ui-bootstrap-tpls-0.11.0.min.js"></script>
+
+
 </head>
 <body ng-init="init('<%= bugId %>')" ng-controller="SingleBugController">
-<div>
-    <p>{{singleBugData.bugId}}</p>
-    <p>{{singleBugData.author.firstName}}</p>
-    <p>{{singleBugData.author.lastName}}</p>
-    <p>{{singleBugData.date}}</p>
-    <p>{{singleBugData.location.building}}</p>
-    <p>{{singleBugData.location.room}}</p>
-    <p>{{singleBugData.picId}}</p>
-    <p>{{singleBugData.status}}</p>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header" style="margin-right: 50px">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo-name" href="/">SSU Bug Tracker</a>
+        </div>
+        <div class="collapse navbar-collapse" id="collapse" >
+
+            <ul class="nav navbar-nav navbar-right text-center right-nav-buttons">
+
+                <a href="https://t.me/SSUBugTrackerBot" target="_blank" class="btn btn-info navbar-btn bot-button">
+                    <span class="glyphicon glyphicon-send"></span> Додати баг
+                </a>
+
+                <a href="" target="_blank" class="btn btn-success navbar-btn">
+                    <span></span>{{donePercents}}% багів вирішено!
+                </a>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <br>
+    <div class="col-md-12">
+        <div ng-include src="'../views/partial/bug.html'"></div>
+    </div>
 </div>
+
+
+<footer class="footer">
+    <div class="container text-center">
+        <p class="text-muted">Issues/Pull requests:
+            <a href="https://github.com/vladhoncharenko/ssu-bug-tracker-client"
+           target="_blank" class="text-muted">Client</a>
+            <a href="https://github.com/epismenniy/ssu-bt-telegram-bot" target="_blank" class="text-muted">Bot</a></p>
+    </div>
+</footer>
 </body>
 </html>

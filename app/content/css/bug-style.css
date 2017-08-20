@@ -1,0 +1,73 @@
+.panel.with-nav-tabs .panel-heading {
+    padding: 5px 5px 0 5px;
+}
+
+.panel.with-nav-tabs .nav-tabs {
+    border-bottom: none;
+}
+
+.panel.with-nav-tabs .nav-justified {
+    margin-bottom: -1px;
+}
+
+
+.bugs-container{
+    margin-top: 55px;
+}
+.right-nav-buttons{
+    margin-right: 15px !important;
+}
+.bot-button{
+    margin-right: 5px;
+}
+.logo-name{
+    margin-left: 5px !important;
+}
+
+.bug-item-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.bug-div{
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+body{
+    background-color: #f0f0f0 !important;
+    font-family: Roboto,Tahoma;
+}
+
+.single-bug-container{
+    margin-top: 7%;
+    margin-bottom: 3%;
+}
+
+.one-bug {
+    top: 15%;
+}
+
+
+.rectangle-style{
+    background-color: #46B8DA;
+    height: auto;
+    min-height: 400px;
+    border-radius:12px;
+    color: white
+}
+
+.rectangle-style a{
+    color: white
+}
+
+.img-size{
+    height: 400px; width: 400px
+}
+
+.bug-link{
+    margin-bottom: 10%
+}
