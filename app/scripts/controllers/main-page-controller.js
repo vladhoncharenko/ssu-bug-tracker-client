@@ -4,12 +4,12 @@
 
 'use strict';
 (function (angular) {
-    angular.module('ssuBugTracker').controller('MainPageController', ['$scope', 'dataContext', 'enums', function ($scope, dataContext, enums) {
+    angular.module('ssuBugTracker').controller('MainPageController', ['$scope', 'dataContext', 'enums', 'ratingService',function ($scope, dataContext, enums, ratingService) {
 
         $scope.BUGS_CATEGORIES = enums.BUGS_CATEGORIES;
         $scope.BUGS_STATUSES = enums.BUGS_STATUSES;
         $scope.TAB_NAMES = enums.TAB_NAMES;
-
+        $scope.vote = ratingService.vote;
         // Pagination properties
         $scope.maxButtonsAmount = enums.MAX_BUTTONS_AMOUNT;
         $scope.currentPage = enums.DEFAULT_PAGE_NUMBER;
@@ -109,15 +109,6 @@
 
         $scope.setDonePercents = function () {
             $scope.donePercents = Math.round($scope.resolvedBugs.length / $scope.allBugsLength * 100);
-        };
-
-        $scope.vote = function (bug, increment) {
-            // ToDo: put voted flag in session.
-            if (bug.voted != true) {
-                bug.rating += increment;
-                dataContext.vote(bug.bugId, increment);
-            }
-            bug.voted = true;
         };
 
     }]);

@@ -1,48 +1,50 @@
 <div class="row single-bug-container">
-
-        <div class="col-md-8 col-md-offset-2 rectangle-style">
+    <div class="col-md-8 col-md-offset-2 rectangle-style">
             <div class="col-md-12" style="padding: 15px">
-                <div class="col-md-6">
-
-                    <img class="img-responsive img-rounded img-size"
-                         src="http://localhost:5000/pics/{{singleBugData.file_name}}" >
+                <div class="dropdown inputWrap" ng-show="isAdmin">
+                    <button class="btn btn-warning btn-xs dropdown-toggle" type="button">{{getCategoryName(bugData.status)}}
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0);"
+                               ng-click="setNewStatus(bugData,BUGS_CATEGORIES.NEW )">{{BUGS_STATUSES.NEW}}</a></li>
+                        <li><a href="javascript:void(0);"
+                               ng-click="setNewStatus(bugData,BUGS_CATEGORIES.IN_PROGRESS )">{{BUGS_STATUSES.IN_PROGRESS}}</a>
+                        </li>
+                        <li><a href="javascript:void(0);"
+                               ng-click="setNewStatus(bugData,BUGS_CATEGORIES.RESOLVED )">{{BUGS_STATUSES.RESOLVED}}</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:void(0);"
+                               ng-click="deleteBug(bugData)">{{BUGS_STATUSES.DELETED}}</a>
+                        </li>
+                    </ul>
                 </div>
-
+                <div class="col-md-6">
+                    <img class="img-responsive img-thumbnail img-size"
+                         src="http://localhost:5000/pics/{{bugData.file_name}}" >
+                </div>
                 <div class="col-md-6">
                     <div class="text-center bug-link">
-                        <h2><a href="http://localhost:5000/bug/{{singleBugData.bugId}}" style="text-decoration: none">Bug №{{singleBugData.bugId}}</a></h2>
+                        <h2><a href="http://localhost:5000/bug/{{bugData.bugId}}" style="text-decoration: none">Bug №{{bugData.bugId}}</a></h2>
                     </div>
-                    <div><i class="fa fa-user-circle" aria-hidden="true"></i>  {{singleBugData.author._firstName +" "+ singleBugData.author._lastName}}
+                    <div><i class="fa fa-user-circle" aria-hidden="true"></i>  {{bugData.author._firstName +" "+ bugData.author._lastName}}
                     </div>
                     <br/>
-                    <div><i class="fa fa-clock-o" aria-hidden="true"></i>  Дата створення:  {{singleBugData.date}}</div>
+                    <div><i class="fa fa-clock-o" aria-hidden="true"></i>  {{bugData.date}}</div>
                     <br/>
-                    <div><i class="fa fa-map-marker fa-x" aria-hidden="true"></i> Корус:  {{singleBugData.location.building}}</div>
+                    <div><i class="fa fa-map-marker fa-x" aria-hidden="true"></i>  {{bugData.location.building}}, {{bugData.location.room}}</div>
                     <br/>
-
-                    <div><i class="fa fa-location-arrow" aria-hidden="true"></i> Аудиторія:  {{singleBugData.location.room}}</div>
+                    <div><i class="fa fa-flag" aria-hidden="true"></i>  {{getCategoryName(bugData.status)}}</div>
                     <br/>
-                    <div><i class="fa fa-globe" aria-hidden="true"></i> Опис проблеми:  {{singleBugData.description}}</div>
-                    <br/>
-
-
-                    <div><i class="fa fa-wifi" aria-hidden="true"></i> Статус:  {{singleBugData.status}}</div>
-                    <br/>
-
-                    <div class="col-md-offset-5">
-                        <div class="btn-group btn-lg" style="border-radius:5px;">
-                            <a href="https://t.me/SSUBugTrackerBot" style="color: white; margin-right: 5px;">
-                                <i class="fa fa-telegram fa-2x" aria-hidden="true" title="Telegram"></i>
-                            </a>
-
-                        </div>
-                    </div>
-
+                    <div><i class="fa fa-comment-o" aria-hidden="true"></i>  {{bugData.description}}</div>
+                    <br/><br/>
                 </div>
             </div>
+            <div class="bug-footer">
+                <bug-rating class="pull-right bug-rating"></bug-rating>
+            </div>
         </div>
-
-    </div>
+</div>
 
 
 

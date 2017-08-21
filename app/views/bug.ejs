@@ -8,29 +8,32 @@
 
     <script src="../scripts/libs/jquery-3.2.1.min.js"></script>
     <script src="../scripts/libs/ui-bootstrap-tpls-0.11.0.min.js"></script>
-
-
     <link rel="stylesheet" type="text/css" href="../content/css/bug-style.css">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-
     <script src="../scripts/app.js" type="text/javascript"></script>
     <script src="../scripts/services/data-context.js" type="text/javascript"></script>
-
-    <script src="../scripts/controllers/main-page-controller.js" type="text/javascript"></script>
-
+    <script src="../scripts/helpers/enums.js" type="text/javascript"></script>
+    <script src="../scripts/directives/rating-directive.js" type="text/javascript"></script>
     <script src="../scripts/controllers/single-bug-controller.js" type="text/javascript"></script>
-    <script src="../scripts/libs/ui-bootstrap-tpls-0.11.0.min.js"></script>
-
+    <script src="../scripts/services/rating-service.js" type="text/javascript"></script>
 
 </head>
 <body ng-init="init('<%= bugId %>')" ng-controller="SingleBugController">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.10&appId=335525866894812";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -51,9 +54,6 @@
                     <span class="glyphicon glyphicon-send"></span> Додати баг
                 </a>
 
-                <a href="" target="_blank" class="btn btn-success navbar-btn">
-                    <span></span>{{donePercents}}% багів вирішено!
-                </a>
             </ul>
         </div>
     </div>
@@ -64,8 +64,10 @@
     <div class="col-md-12">
         <div ng-include src="'../views/partial/bug.html'"></div>
     </div>
+    <div class="text-center">
+        <div class="fb-comments" data-href="" data-numposts="5"></div>
+    </div>
 </div>
-
 
 <footer class="footer">
     <div class="container text-center">
