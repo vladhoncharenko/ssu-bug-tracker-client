@@ -15,13 +15,13 @@
     margin-top: 55px;
 }
 .right-nav-buttons{
-    margin-right: 15px !important;
+    margin-right: 30px !important;
 }
 .bot-button{
     margin-right: 5px;
 }
 .logo-name{
-    margin-left: 5px !important;
+    margin-left: 20px !important;
 }
 
 .bug-item-pic {
@@ -70,4 +70,13 @@ body{
 .bug-rating{
     padding-right: 100px;
     margin-top: -25px !important;
+}
+
+@media only screen and (max-width: 992px) {
+    .right-nav-buttons {
+        margin-right: -70px !IMPORTANT;
+    }
+}
+.logout-btn{
+    margin-left: 5px;
 }
