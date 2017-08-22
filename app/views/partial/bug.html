@@ -38,17 +38,11 @@
                     <br/>
                     <div><i class="fa fa-comment-o" aria-hidden="true"></i>  {{bugData.description}}</div>
                     <br/>
-
-                    <div><a href="/bug-pdf/{{bugData.bugId}}" class="btn btn-default" role="button">PDF - формат</a></div>
-                    <br/>
-
                     <br/>
                 </div>
             </div>
             <div class="bug-footer">
-
-
-
+                <div><a href="/bug-pdf/{{bugData.bugId}}" class="btn btn-default btn-xs pdf-button" role="button">Завантажити PDF</a></div>
                 <bug-rating class="pull-right bug-rating"></bug-rating>
             </div>
         </div>
