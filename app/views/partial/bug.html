@@ -37,10 +37,18 @@
                     <div><i class="fa fa-flag" aria-hidden="true"></i>  {{getCategoryName(bugData.status)}}</div>
                     <br/>
                     <div><i class="fa fa-comment-o" aria-hidden="true"></i>  {{bugData.description}}</div>
-                    <br/><br/>
+                    <br/>
+
+                    <div><a href="/bug-pdf/{{bugData.bugId}}" class="btn btn-default" role="button">PDF - формат</a></div>
+                    <br/>
+
+                    <br/>
                 </div>
             </div>
             <div class="bug-footer">
+
+
+
                 <bug-rating class="pull-right bug-rating"></bug-rating>
             </div>
         </div>
