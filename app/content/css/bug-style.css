@@ -60,6 +60,7 @@ body{
 .img-size{
     height: 400px; width: 400px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .bug-link{
