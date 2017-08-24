@@ -10,17 +10,19 @@
     margin-bottom: -1px;
 }
 
-
-.bugs-container{
+.bugs-container {
     margin-top: 55px;
 }
-.right-nav-buttons{
+
+.right-nav-buttons {
     margin-right: 30px !important;
 }
-.bot-button{
+
+.bot-button {
     margin-right: 5px;
 }
-.logo-name{
+
+.logo-name {
     margin-left: 20px !important;
 }
 
@@ -32,24 +34,26 @@
     margin-left: 10px;
 }
 
-.bug-div{
+.bug-div {
     background-color: white;
     margin-bottom: 10px;
 }
 
-body{
+body {
     background-color: #f0f0f0 !important;
-    font-family: Roboto,Tahoma;
+    font-family: Roboto, Tahoma;
 }
-.bug-content{
+
+.bug-content {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 40px;
 }
-.bug-footer{
+
+.bug-footer {
     border-top: 1px #f0f0f0 solid;
     margin-left: -20px;
-    margin-right:-100px;
+    margin-right: -100px;
 }
 
 .inputWrap {
@@ -57,17 +61,18 @@ body{
     float: left;
     margin-right: 4px;
 }
-.bug-author{
+
+.bug-author {
     margin-left: 20px !important;
     margin-top: 10px;
     margin-bottom: -10px;
 }
 
-.bug-description{
+.bug-description {
     padding-left: 10px;
 }
 
-.bug-rating{
+.bug-rating {
     padding-right: 100px;
     margin-top: -25px !important;
 }
@@ -77,6 +82,7 @@ body{
         margin-right: -70px !IMPORTANT;
     }
 }
-.logout-btn{
+
+.logout-btn {
     margin-left: 5px;
 }

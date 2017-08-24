@@ -1,52 +1,57 @@
 <div class="row single-bug-container">
     <div class="col-md-8 col-md-offset-2 rectangle-style">
-            <div class="col-md-12" style="padding: 15px">
-                <div class="dropdown inputWrap" ng-show="isAdmin">
-                    <button class="btn btn-warning btn-xs dropdown-toggle" type="button">{{getCategoryName(bugData.status)}}
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0);"
-                               ng-click="setNewStatus(bugData,BUGS_CATEGORIES.NEW )">{{BUGS_STATUSES.NEW}}</a></li>
-                        <li><a href="javascript:void(0);"
-                               ng-click="setNewStatus(bugData,BUGS_CATEGORIES.IN_PROGRESS )">{{BUGS_STATUSES.IN_PROGRESS}}</a>
-                        </li>
-                        <li><a href="javascript:void(0);"
-                               ng-click="setNewStatus(bugData,BUGS_CATEGORIES.RESOLVED )">{{BUGS_STATUSES.RESOLVED}}</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="javascript:void(0);"
-                               ng-click="deleteBug(bugData)">{{BUGS_STATUSES.DELETED}}</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-
-
-                    <a href="http://localhost:5000/pics/{{bugData.file_name}}" data-toggle="lightbox"><img class="img-responsive img-thumbnail img-size" src="http://localhost:5000/pics/{{bugData.file_name}}"></a>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center bug-link">
-                        <h2><a href="http://localhost:5000/bug/{{bugData.bugId}}" style="text-decoration: none">Bug №{{bugData.bugId}}</a></h2>
-                    </div>
-                    <div><i class="fa fa-user-circle" aria-hidden="true"></i>  {{bugData.author._firstName +" "+ bugData.author._lastName}}
-                    </div>
-                    <br/>
-                    <div><i class="fa fa-clock-o" aria-hidden="true"></i>  {{bugData.date}}</div>
-                    <br/>
-                    <div><i class="fa fa-map-marker fa-x" aria-hidden="true"></i>  {{bugData.location.building}}, {{bugData.location.room}}</div>
-                    <br/>
-                    <div><i class="fa fa-flag" aria-hidden="true"></i>  {{getCategoryName(bugData.status)}}</div>
-                    <br/>
-                    <div><i class="fa fa-comment-o" aria-hidden="true"></i>  {{bugData.description}}</div>
-                    <br/>
-                    <br/>
-                </div>
+        <div class="col-md-12" style="padding: 15px">
+            <div class="dropdown inputWrap" ng-show="isAdmin">
+                <button class="btn btn-warning btn-xs dropdown-toggle" type="button">{{getCategoryName(bugData.status)}}
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0);"
+                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.NEW )">{{BUGS_STATUSES.NEW}}</a></li>
+                    <li><a href="javascript:void(0);"
+                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.IN_PROGRESS )">{{BUGS_STATUSES.IN_PROGRESS}}</a>
+                    </li>
+                    <li><a href="javascript:void(0);"
+                           ng-click="setNewStatus(bugData,BUGS_CATEGORIES.RESOLVED )">{{BUGS_STATUSES.RESOLVED}}</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="javascript:void(0);"
+                           ng-click="deleteBug(bugData)">{{BUGS_STATUSES.DELETED}}</a>
+                    </li>
+                </ul>
             </div>
-            <div class="bug-footer">
-                <div><a href="/bug-pdf/{{bugData.bugId}}" class="btn btn-default btn-xs pdf-button" role="button">Завантажити PDF</a></div>
-                <bug-rating class="pull-right bug-rating"></bug-rating>
+            <div class="col-md-6">
+                <a href="http://localhost:5000/pics/{{bugData.file_name}}" data-toggle="lightbox"><img
+                        class="img-responsive img-thumbnail img-size"
+                        src="http://localhost:5000/pics/{{bugData.file_name}}"></a>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center bug-link">
+                    <h2><a href="http://localhost:5000/bug/{{bugData.bugId}}" style="text-decoration: none">Bug
+                        №{{bugData.bugId}}</a></h2>
+                </div>
+                <div><i class="fa fa-user-circle" aria-hidden="true"></i> {{bugData.author._firstName +" "+
+                    bugData.author._lastName}}
+                </div>
+                <br/>
+                <div><i class="fa fa-clock-o" aria-hidden="true"></i> {{bugData.date}}</div>
+                <br/>
+                <div><i class="fa fa-map-marker fa-x" aria-hidden="true"></i> {{bugData.location.building}},
+                    {{bugData.location.room}}
+                </div>
+                <br/>
+                <div><i class="fa fa-flag" aria-hidden="true"></i> {{getCategoryName(bugData.status)}}</div>
+                <br/>
+                <div><i class="fa fa-comment-o" aria-hidden="true"></i> {{bugData.description}}</div>
+                <br/>
+                <br/>
             </div>
         </div>
+        <div class="bug-footer">
+            <div><a href="/bug-pdf/{{bugData.bugId}}" class="btn btn-default btn-xs pdf-button" role="button">Завантажити
+                PDF</a></div>
+            <bug-rating class="pull-right bug-rating"></bug-rating>
+        </div>
+    </div>
 </div>
 
 
