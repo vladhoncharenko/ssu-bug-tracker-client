@@ -88,6 +88,7 @@
                 $scope.bugsData.splice(index, 1);
             }
             dataContext.deleteBug(bugData.bugId);
+            $scope.setDonePercents();
         };
 
         $scope.getCategoryName = function (status) {

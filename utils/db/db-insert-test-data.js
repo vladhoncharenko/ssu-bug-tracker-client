@@ -4,6 +4,7 @@
 
 /*
  * To add bugs test data to db run: node db-insert-test-data.js <argument>
+ *     To display bugs with image - put image 0001.jpg to /pics directory
  * Possible arguments:
  *   bugs - bugs test data
  * */

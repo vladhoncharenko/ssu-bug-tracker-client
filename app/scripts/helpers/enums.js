@@ -28,7 +28,7 @@
         };
         factory.DEFAULT_PAGE_NUMBER = 1;
         factory.MAX_BUTTONS_AMOUNT = 5;
-        factory.MAX_POSTS_AMOUNT_PER_PAGE = 5;
+        factory.MAX_POSTS_AMOUNT_PER_PAGE = 10;
         factory.ADMIN = 'admin';
 
         return factory;
