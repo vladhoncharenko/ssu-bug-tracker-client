@@ -3,12 +3,14 @@
  */
 
 let picDownloader = require('../app/helpers/pic-downloader');
+let utils = require('../app/helpers/utils');
 
 module.exports = function (app, Bug) {
 
     app.get('/getAllBugsData', (req, res) => {
         Bug.find({}, function (err, bugs) {
             if (err) console.log(err);
+            bugs.sort(utils.compareBugsByCreationDate);
             res.send(bugs);
         });
     });

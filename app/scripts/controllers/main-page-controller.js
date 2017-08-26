@@ -69,13 +69,13 @@
             bugData.status = status;
             switch (status) {
                 case enums.BUGS_CATEGORIES.NEW:
-                    $scope.lastBugs.push(bugData);
+                    $scope.lastBugs.unshift(bugData);
                     break;
                 case enums.BUGS_CATEGORIES.IN_PROGRESS:
-                    $scope.inProgressBugs.push(bugData);
+                    $scope.inProgressBugs.unshift(bugData);
                     break;
                 case enums.BUGS_CATEGORIES.RESOLVED:
-                    $scope.resolvedBugs.push(bugData);
+                    $scope.resolvedBugs.unshift(bugData);
                     break;
             }
             $scope.setDonePercents();
