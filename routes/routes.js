@@ -5,9 +5,9 @@
 const apiRoutes = require('./api-routes');
 const PDFDocument = require('pdfkit');
 
-module.exports = function (app, viewPath, Bug, passport) {
+module.exports = function (app, viewPath, Bug, passport, fs) {
 
-    apiRoutes(app, Bug);
+    apiRoutes(app, Bug, fs);
 
     app.get('/', function (req, res) {
         res.render(viewPath + 'index.ejs', {

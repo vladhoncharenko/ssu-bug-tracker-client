@@ -5,7 +5,7 @@
 let picDownloader = require('../app/helpers/pic-downloader');
 let utils = require('../app/helpers/utils');
 
-module.exports = function (app, Bug) {
+module.exports = function (app, Bug, fs) {
 
     app.get('/getAllBugsData', (req, res) => {
         Bug.find({}, function (err, bugs) {
@@ -46,8 +46,12 @@ module.exports = function (app, Bug) {
         if (isAdmin) {
             Bug.findOneAndRemove({'bugId': req.body.id}, function (err, bug) {
                 if (err) console.log(err);
-                res.sendStatus(200);
+                fs.unlink('pics/' + bug.file_name, (err) => {
+                    if (err) throw err;
+                    res.sendStatus(200);
+                });
             });
+
         }
     });
 

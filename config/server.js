@@ -15,6 +15,7 @@ let Bug = require('../app/models/bug-schema');
 let configDB = require('../config/mongo-db-config');
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
+let fs = require('fs');
 
 require('../config/passport')(passport);
 mongoose.connect(configDB.url, {
@@ -47,7 +48,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
-require('../routes/routes.js')(app, viewPath, Bug, passport);
+require('../routes/routes.js')(app, viewPath, Bug, passport, fs);
 
 http.listen(app.get('port'), function () {
     console.log('listening on *:' + app.get('port'));
