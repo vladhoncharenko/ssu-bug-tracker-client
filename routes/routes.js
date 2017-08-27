@@ -65,7 +65,7 @@ module.exports = function (app, viewPath, Bug, passport, fs) {
 
             doc.y = 300
             doc.font('./app/content/fonts/OpenSans-Bold.ttf')
-            doc.text('Bug #' + bug.bugId, 250, 50)
+            doc.text('Баг #' + bug.bugId, 250, 50)
 
             doc.text('Дата створення:  ' + date, 200, 75);
             doc.text('Корпус:  ' + building, 250, 125);
