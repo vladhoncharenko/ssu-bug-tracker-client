@@ -22,7 +22,7 @@ module.exports = function (app, viewPath, Bug, passport, fs) {
     });
 
     app.get('/admin', isLoggedIn, function (req, res) {
-        res.sendfile(viewPath + 'login.html');
+        res.sendFile(viewPath + 'login.html');
     });
 
     // Facebook routes
@@ -49,6 +49,8 @@ module.exports = function (app, viewPath, Bug, passport, fs) {
 
             const doc = new PDFDocument()
 
+            doc.registerFont('OpenSans-Bold', './fonts/OpenSans-Bold.ttf', 'Open Sans');
+
             let filename = bug.bugId;
             filename = encodeURIComponent(filename) + '.pdf'
 
@@ -62,13 +64,13 @@ module.exports = function (app, viewPath, Bug, passport, fs) {
             const caption = bug.caption;
 
             doc.y = 300
-            doc.font('Times-Roman');
-            doc.text('Баг №' + bug.bugId, 250, 50)
+            doc.font('./app/content/fonts/OpenSans-Bold.ttf')
+            doc.text('Bug #' + bug.bugId, 250, 50)
 
-            doc.text('Дата створення:  ' + date, 190, 75);
-            doc.text('Корпус:  ' + building, 250, 205);
-            doc.text('Аудиторія або інше' + room, 180, 150);
-            doc.text('Опис проблеми' + description, 215, 175);
+            doc.text('Дата створення:  ' + date, 200, 75);
+            doc.text('Корпус:  ' + building, 250, 125);
+            doc.text('Аудиторія   :   ' + room, 220, 150);
+            doc.text('Опис проблеми:   ' + description, 215, 175);
             doc.text(caption, 250, 200);
 
             doc.pipe(res)
