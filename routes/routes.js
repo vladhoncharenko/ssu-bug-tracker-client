@@ -65,13 +65,17 @@ module.exports = function (app, viewPath, Bug, passport, fs) {
 
             doc.y = 300
             doc.font('./app/content/fonts/OpenSans-Bold.ttf')
-            doc.text('Баг #' + bug.bugId, 250, 50)
+            doc.text('Баг #' + bug.bugId, 300, 50)
 
-            doc.text('Дата створення:  ' + date, 200, 75);
-            doc.text('Корпус:  ' + building, 250, 125);
-            doc.text('Аудиторія   :   ' + room, 220, 150);
-            doc.text('Опис проблеми:   ' + description, 215, 175);
-            doc.text(caption, 250, 200);
+            let img_path = './pics/' + bug.file_name
+
+            doc.image(img_path, 25, 90, {width: 200, height:250})
+
+            doc.text('Дата створення:  ' + date, 325, 90);
+            doc.text('Корпус:  ' + building, 375, 140);
+            doc.text('Аудиторія   :   ' + room, 345, 170);
+            doc.text('Опис проблеми:   ' + description, 340, 195);
+            doc.text(caption, 375, 225);
 
             doc.pipe(res)
             doc.end()

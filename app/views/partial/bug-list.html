@@ -1,7 +1,7 @@
 <div ng-repeat="bugData in bugsData.slice(((currentPage - 1) * maxPostsAmountPerPage), ((currentPage) * maxPostsAmountPerPage))"
      class="bug-div">
     <div class="bug-content">
-        <span><a href="http://localhost:5000/bug/{{bugData.bugId}}">Bug #{{bugData.bugId}}</a></span>
+        <span><a href="/bug/{{bugData.bugId}}">Bug #{{bugData.bugId}}</a></span>
         <button type="button" class="btn btn-primary btn-xs">{{bugData.location.building}}</button>
         <button type="button" class="btn btn-primary btn-xs">{{bugData.location.room}}</button>
         <div class="dropdown inputWrap" ng-show="isAdmin">
@@ -24,9 +24,9 @@
         </div>
         <br><br>
         <div class="row">
-            <a href="http://localhost:5000/pics/{{bugData.file_name}}" data-toggle="lightbox"><img
+            <a href="./pics/{{bugData.file_name}}" data-toggle="lightbox"><img
                     class="img-thumbnail float-left bug-item-pic  pull-left gap-right"
-                    src="http://localhost:5000/pics/{{bugData.file_name}}"></a>
+                    src="./pics/{{bugData.file_name}}"></a>
             <p class="bug-description">{{bugData.description}}</p>
         </div>
         <br>

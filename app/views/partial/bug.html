@@ -20,13 +20,13 @@
                 </ul>
             </div>
             <div class="col-md-6">
-                <a href="http://localhost:5000/pics/{{bugData.file_name}}" data-toggle="lightbox"><img
+                <a href="/pics/{{bugData.file_name}}" data-toggle="lightbox"><img
                         class="img-responsive img-thumbnail img-size"
-                        src="http://localhost:5000/pics/{{bugData.file_name}}"></a>
+                        src="/pics/{{bugData.file_name}}"></a>
             </div>
             <div class="col-md-6">
                 <div class="text-center bug-link">
-                    <h2><a href="http://localhost:5000/bug/{{bugData.bugId}}" style="text-decoration: none">Bug
+                    <h2><a href="/bug/{{bugData.bugId}}" style="text-decoration: none">Bug
                         №{{bugData.bugId}}</a></h2>
                 </div>
                 <div><i class="fa fa-user-circle" aria-hidden="true"></i> {{bugData.author._firstName +" "+
@@ -49,7 +49,7 @@
         <div class="bug-footer">
             <div><a href="/bug-pdf/{{bugData.bugId}}" class="btn btn-default btn-xs pdf-button" role="button">Завантажити
                 PDF</a></div>
-            <bug-rating class="pull-right bug-rating"></bug-rating>
+            <div class="pull-right bug-rating"></div>
         </div>
     </div>
 </div>
