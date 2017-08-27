@@ -16,6 +16,7 @@ let configDB = require('../config/mongo-db-config');
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
 let fs = require('fs');
+let botHostname = 'http://ec2-54-245-171-254.us-west-2.compute.amazonaws.com:7777';
 
 require('../config/passport')(passport);
 mongoose.connect(configDB.url, {
@@ -42,7 +43,7 @@ app.use(passport.session());
 app.use(flash());
 
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:7777');
+    res.setHeader('Access-Control-Allow-Origin', botHostname);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
