@@ -16,7 +16,7 @@ let configDB = require('../config/mongo-db-config');
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
 let fs = require('fs');
-let botHostname = 'http://ec2-54-245-171-254.us-west-2.compute.amazonaws.com:7777';
+let botHostname = 'http://ssubugtracker.com:7777';
 
 require('../config/passport')(passport);
 mongoose.connect(configDB.url, {
@@ -34,7 +34,7 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 80));
 app.use('/', express.static(path.join(__dirname, '../app/')));
 app.use('/pics', express.static(path.join(__dirname, '../pics')));
 app.set('view engine', 'ejs');
