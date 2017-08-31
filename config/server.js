@@ -34,7 +34,7 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
-app.set('port', (process.env.PORT || 80));
+app.set('port', (process.env.PORT || 8080));
 app.use('/', express.static(path.join(__dirname, '../app/')));
 app.use('/pics', express.static(path.join(__dirname, '../pics')));
 app.set('view engine', 'ejs');
