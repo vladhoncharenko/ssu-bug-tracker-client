@@ -12,6 +12,7 @@ let downloadPic = function (uri, filename, callback) {
                 reject(res.statusCode);
             }
             request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+            console.log('pic upl');
             resolve('ok');
         });
     });

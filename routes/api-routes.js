@@ -23,6 +23,7 @@ module.exports = function (app, Bug, fs) {
     });
 
     app.post('/savePic', (req, res) => {
+        console.log(req.body.src + req.body.filename);
         picDownloader.downloadPic(req.body.src, 'pics/' + req.body.filename, function () {
         }).catch(error => {
             console.log('Error while pic downloading: ' + error);
