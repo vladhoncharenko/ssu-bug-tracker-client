@@ -1,9 +1,11 @@
 <div ng-repeat="bugData in bugsData.slice(((currentPage - 1) * maxPostsAmountPerPage), ((currentPage) * maxPostsAmountPerPage))"
      class="bug-div">
+
     <div class="bug-content">
-        <span><a href="/bug/{{bugData.bugId}}">Bug #{{bugData.bugId}}</a></span>
-        <button type="button" class="btn btn-primary btn-xs">{{bugData.location.building}}</button>
-        <button type="button" class="btn btn-primary btn-xs">{{bugData.location.room}}</button>
+        <a href="/bug/{{bugData.bugId}}" class="btn btn-success btn-xs" role="button">Bug #{{bugData.bugId}}</a>
+
+        <button type="button" class="btn btn-default btn-xs">{{bugData.location.building}}</button>
+        <button type="button" class="btn btn-default btn-xs">{{bugData.location.room}}</button>
         <div class="dropdown inputWrap" ng-show="isAdmin">
             <button class="btn btn-warning btn-xs dropdown-toggle" type="button">{{getCategoryName(bugData.status)}}
                 <span class="caret"></span></button>
@@ -31,7 +33,7 @@
         </div>
         <br>
         <div class="bug-footer">
-            <div class="bug-author">{{bugData.author._firstName}} {{bugData.author._lastName}} {{bugData.date}}</div>
+            <div class="bug-author ">{{bugData.author._firstName}} {{bugData.author._lastName}} {{bugData.date}}</div>
             <bug-rating class="pull-right bug-rating"></bug-rating>
         </div>
         <br>
