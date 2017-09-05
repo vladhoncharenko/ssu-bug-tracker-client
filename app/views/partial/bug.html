@@ -23,6 +23,9 @@
                 <a href="/pics/{{bugData.file_name}}" data-toggle="lightbox"><img
                         class="img-responsive img-thumbnail img-size"
                         src="/pics/{{bugData.file_name}}"></a>
+
+                <div><a href="/bug-pdf/{{bugData.bugId}}" class="btn btn-default btn-xs " role="button">Завантажити
+                    PDF</a></div>
             </div>
             <div class="col-md-6">
                 <div class="text-center bug-link">
@@ -47,8 +50,7 @@
             </div>
         </div>
         <div class="bug-footer">
-            <div><a href="/bug-pdf/{{bugData.bugId}}" class="btn btn-default btn-xs pdf-button" role="button">Завантажити
-                PDF</a></div>
+
             <div class="pull-right bug-rating"></div>
         </div>
     </div>

@@ -36,15 +36,15 @@
                 </div>
                 <div class="collapse navbar-collapse" id="collapse" >
                     <ul class="nav navbar-nav text-center" >
-                        <li ng-show="isAdmin" ng-class="isAdmin ? 'active' :''"><a data-toggle="tab"
+                        <li ng-show="isAdmin" ng-class="isAdmin ? 'active' :''"><a data-toggle="tab" role="button"
                                                                                    ng-click="getBugsData(BUGS_CATEGORIES.NOT_REVIEWED)">{{TAB_NAMES.NOT_REVIEWED}}</a>
                         </li>
-                        <li ng-class="isAdmin ? '' :'active'"><a data-toggle="tab"
+                        <li ng-class="isAdmin ? '' :'active'"><a data-toggle="tab" role="button"
                                                                  ng-click="getBugsData(BUGS_CATEGORIES.NEW)">{{TAB_NAMES.NEW}}</a>
                         </li>
-                        <li><a data-toggle="tab"
+                        <li><a data-toggle="tab" role="button"
                                ng-click="getBugsData(BUGS_CATEGORIES.IN_PROGRESS)">{{TAB_NAMES.IN_PROGRESS}}</a></li>
-                        <li><a data-toggle="tab"
+                        <li><a data-toggle="tab" role="button"
                                ng-click="getBugsData(BUGS_CATEGORIES.RESOLVED)">{{TAB_NAMES.RESOLVED}}</a></li>
 
                     </ul>
