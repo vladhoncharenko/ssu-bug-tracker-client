@@ -15,25 +15,12 @@ let downloadPic = function (uri, filename, callback) {
             if (res.statusCode !== 200) {
                 reject(res.statusCode);
             }
-           //let stream=fs.createWriteStream(filename);
-            //console.log("OK HERE");
-            //
-            // request(uri).pipe(stream).on('close', err=>{
-            //     console.log("Err");
-            //     console.log(err);
-            // });
-
 
             request(uri, {encoding: 'binary'}, function(error, response, body) {
-                console.log(response);
-                console.log(error);
-                console.log(body);
-                // fs.writeFile(filename, body, 'binary', function (err) {
-                //     console.log("Err");
-                //     console.log(err);
-                // });
+                fs.writeFile(__dirname + "/"+ filename, body, 'binary', function (err) {
+                    console.log(err);
+                });
             });
-
 
             console.log('pic upl');
             resolve('ok');
