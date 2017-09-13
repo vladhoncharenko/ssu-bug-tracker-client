@@ -15,7 +15,13 @@ let downloadPic = function (uri, filename, callback) {
             if (res.statusCode !== 200) {
                 reject(res.statusCode);
             }
-            request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+            let stream=fs.createWriteStream(filename);
+            console.log("OK HERE");
+
+            request(uri).pipe(stream).on('close', err=>{
+                console.log("Err");
+                console.log(err);
+            });
             console.log('pic upl');
             resolve('ok');
         });
