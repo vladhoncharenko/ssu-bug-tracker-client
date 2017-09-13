@@ -25,10 +25,13 @@ let downloadPic = function (uri, filename, callback) {
 
 
             request(uri, {encoding: 'binary'}, function(error, response, body) {
-                fs.writeFile(filename, body, 'binary', function (err) {
-                    console.log("Err");
-                    console.log(err);
-                });
+                console.log(response);
+                console.log(error);
+                console.log(body);
+                // fs.writeFile(filename, body, 'binary', function (err) {
+                //     console.log("Err");
+                //     console.log(err);
+                // });
             });
 
 
