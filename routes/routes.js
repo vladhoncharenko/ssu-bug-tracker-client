@@ -70,7 +70,7 @@ module.exports = function (app, viewPath, Bug, passport, fs) {
 
             doc.text('Дата :  ' + date, 290, 110);
 
-            let img_path = './pics/' + bug.file_name
+            let img_path = '../pics/' + bug.file_name
 
             doc.image(img_path, 50, 110, {width: 200, height:250})
 
