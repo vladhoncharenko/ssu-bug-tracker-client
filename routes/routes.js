@@ -65,7 +65,7 @@ module.exports = function (app, viewPath, Bug, passport, fs) {
             const caption = bug.caption;
 
             doc.y = 300
-            doc.font('./fonts/OpenSans-Bold.ttf')
+            doc.font('../app/content/fonts/OpenSans-Bold.ttf')
             doc.text(bugUrl + bug.bugId, 220, 50)
 
             doc.text('Дата :  ' + date, 290, 110);
