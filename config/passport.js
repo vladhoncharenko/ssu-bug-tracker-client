@@ -39,7 +39,7 @@ module.exports = function (passport) {
                         newUser.facebook.token = token;
                         newUser.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
                         newUser.facebook.email = profile.emails[0].value;
-                        newUser.facebook.permissions = 'admin';
+                        newUser.facebook.permissions = '';
                         newUser.save(function (err) {
                             if (err)
                                 throw err;

@@ -10,5 +10,5 @@ module.exports = {
         'callbackURL'   : 'http://localhost:5000/auth/facebook/callback'
     },
 
-    'admin' : '/'
+    'admin' : '/admin'
 };
