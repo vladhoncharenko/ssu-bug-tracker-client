@@ -5,6 +5,7 @@
 const apiRoutes = require('./api-routes');
 const PDFDocument = require('pdfkit');
 let bugUrl= 'ssubugtracker.com/bug/';
+const config = require('../config/auth');
 
 module.exports = function (app, viewPath, Bug, passport, fs) {
 
@@ -22,7 +23,7 @@ module.exports = function (app, viewPath, Bug, passport, fs) {
         });
     });
 
-    app.get('/admin', isLoggedIn, function (req, res) {
+    app.get(config.admin, isLoggedIn, function (req, res) {
         res.sendFile(viewPath + 'login.html');
     });
 

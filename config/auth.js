@@ -8,5 +8,7 @@ module.exports = {
         'clientID'      : '',
         'clientSecret'  : '',
         'callbackURL'   : 'http://localhost:5000/auth/facebook/callback'
-    }
+    },
+
+    'admin' : '/'
 };
