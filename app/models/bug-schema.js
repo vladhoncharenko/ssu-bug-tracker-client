@@ -11,7 +11,8 @@ let BugSchema = mongoose.Schema({
     },
 
     author: {
-        type: Object
+        type: Object,
+        select: false
     },
 
     date: {
