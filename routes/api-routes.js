@@ -27,6 +27,8 @@ module.exports = function (app, Bug, fs) {
             res.sendStatus(200);
         }).catch(error => {
             console.log('Error while pic downloading: ' + error);
+        }).then(responce => {
+            res.sendStatus(200);
         });
     });
 
