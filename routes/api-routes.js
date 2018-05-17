@@ -23,10 +23,13 @@ module.exports = function (app, Bug, fs) {
         });
     });
 
-           app.post('/savePic', (req, res) => {
-            picDownloader.downloadPic(req.body.src, 'pics/' + req.body.filename, function (response) {
-            });
+    app.post('/savePic', (req, res) => {
+        picDownloader.downloadPic(req.body.src, 'pics/' + req.body.filename, function () {
+            res.sendStatus(200);
+        }).catch(error => {
+            console.log('Error while pic downloading: ' + error);
         });
+    });
 
     app.post('/updateStatus', (req, res) => {
         let isAdmin = req.user == undefined ? false : req.user._doc.facebook.permissions == 'admin';
