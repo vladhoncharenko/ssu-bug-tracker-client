@@ -29,11 +29,11 @@ module.exports = function (app, Bug, fs) {
                 request.post({
                     url: req.body.ip,
                     json: req.body.bugId
-                }, function (err, res) {
-                    console.log(res);
+                }, function (err, res1) {
+                    console.log(res1);
                     res.sendStatus(200);
-                }).then((res)=>{
-                    console.log(res);
+                }).then((res1)=>{
+                    console.log(res1);
                     res.sendStatus(200);
                 }).catch((err)=>{
                     console.log(err);
