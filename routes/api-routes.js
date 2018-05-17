@@ -4,6 +4,7 @@
 
 let picDownloader = require('../app/helpers/pic-downloader');
 let utils = require('../app/helpers/utils');
+let http = require("http");
 
 module.exports = function (app, Bug, fs) {
 
@@ -25,8 +26,7 @@ module.exports = function (app, Bug, fs) {
            app.post('/savePic', (req, res) => {
             picDownloader.downloadPic(req.body.src, 'pics/' + req.body.filename, function () {
             }).then(response => {
-
-                app.post({
+                http.post({
                     url: req.body.ip,
                     json: req.body.bugId
                 }, function (err, res) {
