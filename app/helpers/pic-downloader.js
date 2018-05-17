@@ -17,14 +17,12 @@ let downloadPic = function (uri, filename, callback) {
             }
 
             request(uri, {encoding: 'binary'}, function(error, response, body) {
-                fs.writeFile("/"+ filename, body, 'binary', function (err) {
-                    resolve('ok');
+                fs.writeFile("./"+ filename, body, 'binary', function (err) {
                     console.log(err);
                 });
             });
 
             console.log('pic upl');
-            
             resolve('ok');
         });
     });
