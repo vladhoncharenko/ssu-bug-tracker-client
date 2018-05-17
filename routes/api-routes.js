@@ -27,7 +27,7 @@ module.exports = function (app, Bug, fs) {
         }).catch(error => {
             console.log('Error while pic downloading: ' + error);
         }).then(responce => {
-            request.post({
+            app.post({
                 url: req.body.ip,
                 json: req.body.bugId
             }, function (err, res) {
