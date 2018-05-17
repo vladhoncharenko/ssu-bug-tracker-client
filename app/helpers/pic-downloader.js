@@ -18,13 +18,14 @@ let downloadPic = function (uri, filename, callback) {
 
             request(uri, {encoding: 'binary'}, function(error, response, body) {
                 fs.writeFile("./"+ filename, body, 'binary', function (err) {
-                    console.log(err);
                     resolve('ok');
+                    console.log(err);
                 });
             });
 
             console.log('pic upl');
             
+            resolve('ok');
         });
     });
 };
