@@ -24,12 +24,21 @@ module.exports = function (app, Bug, fs) {
 
     app.post('/savePic', (req, res) => {
         picDownloader.downloadPic(req.body.src, 'pics/' + req.body.filename, function () {
-            res.sendStatus(200);
         }).catch(error => {
             console.log('Error while pic downloading: ' + error);
         }).then(responce => {
-            res.sendStatus(200);
-        });
+            request.post({
+                url: req.body.ip,
+                json: req.body.bugId
+            }, function (err, res) {
+                    if (err) {
+                        console.log(err + ' request error');
+                    } else {
+                        res.sendStatus(200);
+                        console.log('response: ', res.statusCode)
+                    }
+            });
+      });
     });
 
     app.post('/updateStatus', (req, res) => {
