@@ -25,8 +25,17 @@ module.exports = function (app, Bug, fs) {
 
     app.post('/savePic', (req, res) => {
         picDownloader.downloadPic(req.body.src, 'pics/' + req.body.filename, function () {
-            res.sendStatus(200);
-        }).catch(error => {
+            
+        }).then((response)=>{
+                console.log(response);
+                request.post({
+                    url: req.body.ip,
+                    json: req.body.bugId
+                }, function (err, res1) {
+                    console.log(err);
+                    res.sendStatus(200);
+                });
+         }).catch(error => {
             console.log('Error while pic downloading: ' + error);
         });
     });
