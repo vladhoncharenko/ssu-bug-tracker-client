@@ -24,17 +24,22 @@ module.exports = function (app, Bug, fs) {
 
     app.post('/savePic', (req, res) => {
         picDownloader.downloadPic(req.body.src, 'pics/' + req.body.filename, function () {
-        }).then(responce => {
+        }).then(response => {
+            console.log(response)
+            console.log(req.body.ip)
+            console.log(req.body.bugId)
             app.post({
                 url: req.body.ip,
                 json: req.body.bugId
             }, function (err, res) {
-                    if (err) {
-                        console.log(err + ' request error');
-                    } else {
-                        res.sendStatus(200);
-                        console.log('response: ', res.statusCode)
-                    }
+                console.log(res)
+                res.sendStatus(200);
+                    //if (err) {
+                      //  console.log(err + ' request error');
+                    //} else {
+                      //  res.sendStatus(200);
+                        //console.log('response: ', res.statusCode)
+                    //}
             }).catch(error => {
             console.log('Error while pic downloading: ' + error);
         });
