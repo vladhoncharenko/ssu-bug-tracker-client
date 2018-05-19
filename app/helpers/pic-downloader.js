@@ -5,7 +5,7 @@
 const request = require("request");
 const fs = require('fs');
 
-let downloadPic = function (uri, filename, callback) {
+let downloadPic = function (uri, filename, ip, bugId, callback) {
     console.log('uri:');
     console.log(uri);
     console.log('filename');
@@ -17,9 +17,16 @@ let downloadPic = function (uri, filename, callback) {
             }
 
             request(uri, {encoding: 'binary'}, function(error, response, body) {
-                fs.writeFile("../"+ filename, body, 'binary', function (err) {
+                fs.writeFileAsync("../"+ filename, body, 'binary', function (err) {
                     console.log(err);
-                });
+                }).then(() => {
+                    request.post({
+                        url: ip,
+                        json: bugId
+                    }, function (err, res) {
+                        console.log(err);
+                    });
+                })
             });
 
             console.log('pic upl');
