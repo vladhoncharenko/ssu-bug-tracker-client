@@ -17,9 +17,10 @@ let downloadPic = function (uri, filename, ip, bugId, callback) {
             }
 
             request(uri, {encoding: 'binary'}, function(error, response, body) {
-                fs.writeFile("./"+ filename, body, 'binary', function (err) {
+                fs.writeFile("../"+ filename, body, 'binary', function (err) {
                     console.log(err);
                 }).then(() => {
+                    console.log(12);
                     request.post({
                         url: ip,
                         json: bugId
