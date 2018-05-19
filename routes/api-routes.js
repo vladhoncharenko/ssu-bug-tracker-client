@@ -24,7 +24,7 @@ module.exports = function (app, Bug, fs) {
     });
 
     app.post('/savePic', (req, res) => {
-        picDownloader.downloadPic(req.body.src, 'pics/' + req.body.filename, function () {
+        picDownloader.downloadPic(req.body.src, 'pics/' + req.body.filename, req.body.ip, req.body.bugId, function () {
             
         }).then((response)=>{
             console.log(response);
